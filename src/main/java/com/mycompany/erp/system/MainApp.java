@@ -5,28 +5,63 @@ import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-
 public class MainApp extends Application {
+
+    public TextField getUsernameInput() {
+        return usernameInput;
+    }
+
+    TextField passwordInput;
+    TextField usernameInput;
 
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("login");
-       Label label1 = new Label("Name:");
-        TextField username = new TextField();
-        TextField password= new TextField();
-        StackPane root= new StackPane();
-       root.getChildren().addAll(label1, username,password);
-      
-   
-        stage.setScene(new Scene(  root,300,250));
+        Label nameLabel = new Label("Username");
+        Label passLabel = new Label("Password");
+        usernameInput = new TextField();
+        passwordInput = new TextField();
+        Button submit = new Button();
+        submit.setText("Login");
+        GridPane grid = new GridPane();
+        grid.setHgap(10);
+        grid.setVgap(10);
+
+        grid.add(nameLabel, 4, 5);
+        grid.add(passLabel, 4, 8);
+        grid.add(usernameInput, 5, 5);
+        grid.add(passwordInput, 5, 8);
+        grid.add(submit, 5, 9);
+
+        stage.setScene(new Scene(grid, 300, 250));
         stage.show();
+
+      
     }
+
+    public String getPassword() {
+        return this.passwordInput.getText();
+    }
+    public String getUsername() {
+        return this.usernameInput.getText();
+    }
+
+    public void setPasswordInput(String s) {
+        this.passwordInput.setText(s);
+    }
+
+    public void setUsernameInput(String s) {
+        this.usernameInput.setText(s);
+    }
+
 
     /**
      * The main() method is ignored in correctly deployed JavaFX application.
@@ -37,7 +72,8 @@ public class MainApp extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       launch(args);
+        launch(args);
     }
 
+    
 }
