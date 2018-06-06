@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.erp.system;
 
+
+import com.mycompany.erp.system.MainApp;
 import javafx.stage.Stage;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -39,31 +40,40 @@ public class MainAppTest {
     }
 
     /**
-     * Test of start method, of class MainApp.
+     * Test of start method, of class MainApp. Tests setting up application
+     * Tests input from testfields
+     * 
+     * 
      */
     @Test
     public void testStart() throws Exception {
         System.out.println("start");
         Stage stage = null;
-        MainApp instance = new MainApp();
-        String[] args = null;
-        MainApp.main(args);
+        MainApp instance;
+        instance = new MainApp();
+       
 
         // TODO review the generated test code and remove the default call to fail.
         String testStringUser = "This is a test";
         String testStringPass = "This is not a test";
-        instance.setUsernameInput(testStringUser);
-        instance.setPasswordInput(testStringPass);
+        try {
+            instance.setUsernameInput(testStringUser);
+            instance.setPasswordInput(testStringPass);
+        } catch (Exception e) {
 
-        if (instance.getUsername().equals(testStringUser)) {
-            System.out.println("Test passed");
-        } else if (instance.getUsername() == null) {
+        }
+        if (instance.getUsername() == null) {
             fail("inputfield returned null");
+        } else if (instance.getUsername().equals(testStringUser)) {
+            System.out.println("Test passed");
+
         } else {
             fail("output doest not equal input");
         }
-
-        if (instance.getPassword().equals(testStringPass)) {
+        
+        if (instance.getPassword() == null) {
+            fail("inputfield returned null");
+        } else if (instance.getPassword().equals(testStringPass)) {
             System.out.println("Test passed");
         } else if (instance.getPassword() == null) {
             fail("inputfield returned null");
@@ -76,7 +86,7 @@ public class MainAppTest {
     /**
      * Test of main method, of class MainApp.
      */
-    @Test
+     @Test
     public void testMain() {
         System.out.println("main");
         String[] args = null;
@@ -84,5 +94,5 @@ public class MainAppTest {
         // TODO review the generated test code and remove the default call to fail.
 
     }
-
+     
 }

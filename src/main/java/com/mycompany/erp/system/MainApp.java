@@ -14,13 +14,16 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class MainApp extends Application {
+    TextField passwordInput;
+    TextField usernameInput;
+    
+   
 
     public TextField getUsernameInput() {
         return usernameInput;
     }
 
-    TextField passwordInput;
-    TextField usernameInput;
+    
 
     @Override
     public void start(Stage stage) throws Exception {
