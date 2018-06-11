@@ -5,10 +5,20 @@
  */
 package Service;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import DBObjects.User;
+
 /**
  *
  * @author Mikael
  */
+@RestController
 public class Api{
     
+    @RequestMapping("/test")
+    public User userTest(){
+        
+        return new User();
+    }
 }

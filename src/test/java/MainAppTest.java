@@ -1,3 +1,6 @@
+
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,11 +16,13 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  *
  * @author Mikael
- */
+*/
+@SpringBootApplication
 public class MainAppTest {
 
     public MainAppTest() {
@@ -25,7 +30,7 @@ public class MainAppTest {
 
     @BeforeClass
     public static void setUpClass() {
-    }
+    }   
 
     @AfterClass
     public static void tearDownClass() {
@@ -45,52 +50,16 @@ public class MainAppTest {
      * 
      * 
      */
-    @Test
-    public void testStart() throws Exception {
-        System.out.println("start");
-        Stage stage = null;
-        MainApp instance;
-        instance = new MainApp();
-       
-
-        // TODO review the generated test code and remove the default call to fail.
-        String testStringUser = "This is a test";
-        String testStringPass = "This is not a test";
-        try {
-            instance.setUsernameInput(testStringUser);
-            instance.setPasswordInput(testStringPass);
-        } catch (Exception e) {
-
-        }
-        if (instance.getUsername() == null) {
-            fail("inputfield returned null");
-        } else if (instance.getUsername().equals(testStringUser)) {
-            System.out.println("Test passed");
-
-        } else {
-            fail("output doest not equal input");
-        }
-        
-        if (instance.getPassword() == null) {
-            fail("inputfield returned null");
-        } else if (instance.getPassword().equals(testStringPass)) {
-            System.out.println("Test passed");
-        } else if (instance.getPassword() == null) {
-            fail("inputfield returned null");
-        } else {
-            fail("output doest not equal input");
-        }
-
-    }
+ 
 
     /**
      * Test of main method, of class MainApp.
      */
      @Test
     public void testMain() {
-        System.out.println("main");
+        
         String[] args = null;
-        MainApp.main(args);
+    //    MainApp.main(args);
         // TODO review the generated test code and remove the default call to fail.
 
     }

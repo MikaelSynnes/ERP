@@ -12,7 +12,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+@EnableAutoConfiguration
 public class MainApp extends Application {
     TextField passwordInput;
     TextField usernameInput;
@@ -75,6 +81,7 @@ public class MainApp extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+         SpringApplication.run(MainApp.class, args);
         launch(args);
     }
 

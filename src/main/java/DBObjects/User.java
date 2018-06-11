@@ -1,3 +1,8 @@
+package DBObjects;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -5,24 +10,13 @@
  */
 
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-/**
+/*
  *
  * @author Mikael
  */
 @Entity
+public class User {
 
-@Table(name = "HUSER")
-public class User implements Serializable {
 
     @Id
     String name;
