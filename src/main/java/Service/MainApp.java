@@ -1,4 +1,4 @@
-package com.mycompany.erp.system;
+package Service;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -81,7 +81,7 @@ public class MainApp extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-         SpringApplication.run(MainApp.class, args);
+        SpringApplication.run(MainApp.class, args);
         launch(args);
     }
 

@@ -8,7 +8,7 @@
  */
 
 
-import com.mycompany.erp.system.MainApp;
+import Service.MainApp;
 import javafx.stage.Stage;
 import org.junit.After;
 import org.junit.AfterClass;

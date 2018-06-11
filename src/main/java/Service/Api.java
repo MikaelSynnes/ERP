@@ -16,6 +16,10 @@ import DBObjects.User;
 @RestController
 public class Api{
     
+    /**
+     *
+     * @return
+     */
     @RequestMapping("/test")
     public User userTest(){
         
