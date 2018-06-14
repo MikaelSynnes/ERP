@@ -9,14 +9,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import DBObjects.User;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
  * @author Mikael
  */
 @RestController
+
 public class Api{
-    EntityManager em;
+    @PersistenceContext
+    static EntityManager em;
     /**
      *
      * @return
@@ -27,8 +30,9 @@ public class Api{
         User u= new User();
         u.setName("Mikael");
         u.setPassword("Password");
-        try{
             em.persist(u);
+        try{
+        
         }catch(Exception e){
             System.out.println("User already Created");
         }
