@@ -8,6 +8,7 @@ package Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import DBObjects.User;
+import javax.persistence.EntityManager;
 
 /**
  *
@@ -15,7 +16,7 @@ import DBObjects.User;
  */
 @RestController
 public class Api{
-    
+    EntityManager em;
     /**
      *
      * @return
@@ -23,6 +24,19 @@ public class Api{
     @RequestMapping("/test")
     public User userTest(){
         
-        return new User();
+        User u= new User();
+        u.setName("Mikael");
+        u.setPassword("Password");
+        try{
+            em.persist(u);
+        }catch(Exception e){
+            System.out.println("User already Created");
+        }
+        return u;
     }
+    @RequestMapping("login")
+    public boolean login(String name, String pass){
+        return name.equals("admin")||pass.equals("admin");
+    }
+    
 }

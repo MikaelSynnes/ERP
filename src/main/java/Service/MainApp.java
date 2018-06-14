@@ -2,6 +2,8 @@ package Service;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,16 +22,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @EnableAutoConfiguration
 public class MainApp extends Application {
+
     TextField passwordInput;
     TextField usernameInput;
-    
-   
 
     public TextField getUsernameInput() {
         return usernameInput;
     }
-
-    
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -40,6 +39,13 @@ public class MainApp extends Application {
         passwordInput = new TextField();
         Button submit = new Button();
         submit.setText("Login");
+        submit.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                
+            }
+        });
+
         GridPane grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
@@ -53,12 +59,12 @@ public class MainApp extends Application {
         stage.setScene(new Scene(grid, 300, 250));
         stage.show();
 
-      
     }
 
     public String getPassword() {
         return this.passwordInput.getText();
     }
+
     public String getUsername() {
         return this.usernameInput.getText();
     }
@@ -70,7 +76,6 @@ public class MainApp extends Application {
     public void setUsernameInput(String s) {
         this.usernameInput.setText(s);
     }
-
 
     /**
      * The main() method is ignored in correctly deployed JavaFX application.
@@ -85,5 +90,4 @@ public class MainApp extends Application {
         launch(args);
     }
 
-    
 }
